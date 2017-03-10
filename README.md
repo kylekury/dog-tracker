@@ -12,20 +12,20 @@ dog again the next day, they're expected to run `/dog [their dog's name]` again.
 ## Data Flow
 - Slack command sends POST requests to Google Script.
 - Google Script uses Google Spreadsheet to manage the data.
--- Each row of the sheet contains dog name & last in-office date.
--- When a dog is marked in-office, its last in-office date is updated to today's date.
--- When the `/dog` command is issued, the script looks for all dogs that have a last in-office date of today and returns.
--- There are also commands to list all the dogs registered at the company, help, and 'delete' a dog from the registry.
+  - Each row of the sheet contains dog name & last in-office date.
+  - When a dog is marked in-office, its last in-office date is updated to today's date.
+  - When the `/dog` command is issued, the script looks for all dogs that have a last in-office date of today and returns.
+  - There are also commands to list all the dogs registered at the company, help, and 'delete' a dog from the registry.
 - An Incoming Webhook is invoked to notify a Slack channel when a dog is marked as in-office.
 
 ## Slackbot Commands
 - Assuming you've set the slack command to `/dog`:
--- `/dog help` -> List the commands with a description of what they do.
--- `/dog` -> List all the dogs in the office today.
--- `/dog list` -> List the dogs registered at your company.
--- `/dog register` -> [Dog Name] - Registers the given dog (example: /dog register bruno).
--- `/dog delete [Dog Name]` -> Deletes the given dog (example: /dog delete bruno).
--- `/dog [Dog Name]` -> Sets the given dog as in-office for the day (example: /dog bruno). If the dog is not registered, it will be.
+  - `/dog help` -> List the commands with a description of what they do.
+  - `/dog` -> List all the dogs in the office today.
+  - `/dog list` -> List the dogs registered at your company.
+  - `/dog register` -> [Dog Name] - Registers the given dog (example: /dog register bruno).
+  - `/dog delete [Dog Name]` -> Deletes the given dog (example: /dog delete bruno).
+  - `/dog [Dog Name]` -> Sets the given dog as in-office for the day (example: /dog bruno). If the dog is not registered, it will be.
 
 ## Prerequisites
 - Admin access to your organization's Slack
@@ -38,14 +38,14 @@ dog again the next day, they're expected to run `/dog [their dog's name]` again.
 - Go into `Tools` -> `Script Editor`
 - Copy `dogTracker.gs` into the script
 - Replace `[SPREADSHEET_ID]` with the ID of the spreadsheet from the spreadsheet's URL
--- As of writing, URL is like: `https://docs.google.com/spreadsheets/d/[ID]/edit#gid=0`
+  - As of writing, URL is like: `https://docs.google.com/spreadsheets/d/[ID]/edit#gid=0`
 - Go to `Publish` -> `Deploy as Web app`
 - Under `Who has access to this app` make sure the value is `Anyone, even anonymous`
--- *Important* Make sure you save the URL that it generates
+  - *Important* Make sure you save the URL that it generates
 
 ### Slack
 - Go to your apps management for slack
--- https://[ORGANIZATION_NAME].slack.com/apps
+  - https://[ORGANIZATION_NAME].slack.com/apps
 
 #### Incoming Webhook
 - Go into `Manage` -> `Incoming Webhooks` -> `Add configuration`
@@ -63,4 +63,4 @@ dog again the next day, they're expected to run `/dog [their dog's name]` again.
 
 ### Back to Google
 - In your script, go back to `Publish` -> `Deploy as Web app`
--- *Important* Make sure you select `New` in `Project version`, otherwise your changes will *not* be published!
+  - *Important* Make sure you select `New` in `Project version`, otherwise your changes will *not* be published!
