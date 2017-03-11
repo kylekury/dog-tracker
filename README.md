@@ -44,20 +44,20 @@ dog again the next day, they're expected to run `/dog [their dog's name]` again.
   - *Important* Make sure you save the URL that it generates
 
 ### Slack
-- Go to your apps management for slack
-  - https://[ORGANIZATION_NAME].slack.com/apps
 
 #### Incoming Webhook
-- Go into `Manage` -> `Incoming Webhooks` -> `Add configuration`
+- Go to `https://[ORGANIZATION_NAME].slack.com/apps/A0F7XDUAZ-incoming-webhooks` -> `Add Configuration`
+  - If that URL is no longer valid, search for `Incoming Webhooks` in the `Search App Directory` at `https://[ORGANIZATION_NAME].slack.com/apps`
 - Choose the channel that you want to post to and click through
 - Copy the `Webhook URL` and replace `[INCOMING_WEBHOOK_URL]` in your Google script
 - Don't forget to modify the `Customize Name` and `Customize Icon` values :)
 
 #### Slack command
-- Go into `Manage` -> `Slash Commands`
+- Go to `https://[ORGANIZATION_NAME].slack.com/apps/A0F82E8CA-slash-commands` -> `Slash Commands`
+  - If that URL is no longer valid, search for `Slash commands` in the `Search App Directory` at `https://[ORGANIZATION_NAME].slack.com/apps`
 - Choose the command name you want and click through
-- In the `Outgoing Data` section, copy `token` and replace `[SLACK_WEBHOOK_TOKEN]` in your Google script
-- Copy the URL from the last step in `Google` into the `URL` field
+- In the `Outgoing Data` section, copy the value for `token` and replace `[SLACK_WEBHOOK_TOKEN]` in your Google script
+- Copy your web app URL from the *Google* section of this guide into the `URL` field
 - Don't forget to modify the `Customize Name` and `Customize Icon`
 - In `Autocomplete help text` it is useful to set the `Usage hint` to `help` so your end users know to type `help` for more information
 
